@@ -10,11 +10,13 @@ public class Game : MonoBehaviour
     [SerializeField] private ShopScreen _shopScreen;
     [SerializeField] private GameOverScreen _gameOverScreen;
 
+
     private void OnEnable()
     {
         _startScreen.PlayButtonClick += OnPlayButtonClick;
         _startScreen.ShopButtonClick += OnShopButtonClick;
         _startScreen.SettingButtonClick += OnSettingButtonClick;
+        _startScreen.ExitButtonClick += OnExitGameButtonClick;
 
         _settingScreen.ExitButtonClick += OnExitSettingButtonClick;
 
@@ -31,6 +33,7 @@ public class Game : MonoBehaviour
         _startScreen.PlayButtonClick -= OnPlayButtonClick;
         _startScreen.ShopButtonClick -= OnShopButtonClick;
         _startScreen.SettingButtonClick -= OnSettingButtonClick;
+        _startScreen.ExitButtonClick -= OnExitGameButtonClick;
 
         _settingScreen.ExitButtonClick -= OnExitSettingButtonClick;
 
@@ -90,6 +93,11 @@ public class Game : MonoBehaviour
         _startScreen.Open();
     }
 
+    private void OnExitGameButtonClick()
+    {
+        Application.Quit();
+    }
+
     private void StartGame()
     {
         Time.timeScale = 1;
@@ -103,7 +111,10 @@ public class Game : MonoBehaviour
     }
 
     private void OnGameOver()
-    {
+    { 
+        PlayerPrefs.SetInt("Money", PlayerPrefs.GetInt("Money") + _player.MoneyDuringGame);
+        PlayerPrefs.Save();
+
         _gameOverScreen.Open();
         Time.timeScale = 0;
     }

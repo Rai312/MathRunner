@@ -4,18 +4,18 @@ public class PlayerTracker : MonoBehaviour
 {
     [SerializeField] private Player _player;
 
-    private float smoothing = 30f;
-    private Vector3 offset;
+    private float _trackingSpeed = 15f;
+    private Vector3 _distanceBetweenPlayerAndCamera;
 
     void Start()
     {
-        offset = transform.position - _player.transform.position;
+        _distanceBetweenPlayerAndCamera = transform.position - _player.transform.position;
     }
 
     void LateUpdate()
     {
-        Vector3 targetCameraPosition = _player.transform.position + offset;
+        Vector3 targetCameraPosition = _player.transform.position + _distanceBetweenPlayerAndCamera;
 
-        transform.position = Vector3.Lerp(transform.position, targetCameraPosition, smoothing * Time.deltaTime);
+        transform.position = Vector3.Lerp(transform.position, targetCameraPosition, _trackingSpeed * Time.deltaTime);
     }
 }

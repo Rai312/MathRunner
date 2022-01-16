@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public abstract class Sound : MonoBehaviour
+public abstract class SoundItem : MonoBehaviour
 {
     [SerializeField] private string _label;
     [SerializeField] private int _price;

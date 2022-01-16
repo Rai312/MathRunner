@@ -4,7 +4,7 @@ using UnityEngine.Events;
 
 public class ShopScreen : Screen
 {
-    [SerializeField] private List<Sound> _sounds;
+    [SerializeField] private List<SoundItem> _sounds;
     [SerializeField] private Player _player;
     [SerializeField] private SoundView _template;
     [SerializeField] private GameObject _itemContainer;
@@ -31,23 +31,31 @@ public class ShopScreen : Screen
         }
     }
 
-    private void AddItem(Sound sound)
+    private void AddItem(SoundItem sound)
     {
         var view = Instantiate(_template, _itemContainer.transform);
         view.SellButtonClick += OnSellButtonClick;
         view.Render(sound);
     }
 
-    private void OnSellButtonClick(Sound sound, SoundView view)
+    private void OnSellButtonClick(SoundItem sound, SoundView view)
     {
         TrySellSound(sound, view);
     }
 
-    private void TrySellSound(Sound sound, SoundView view)
+    private bool CheckSolvency(SoundItem sound)
     {
-        if (_player.CheckSolvency(sound))
+        if (PlayerPrefs.GetInt("Money") >= sound.Price)
+            return true;
+        else
+            return false;
+    }
+
+    private void TrySellSound(SoundItem sound, SoundView view)
+    {
+        if (CheckSolvency(sound))
         {
-            _player.ToPay();
+            MoneyManager.Pay(sound.Price);
             _player.AddPurchasedSound(sound);
             sound.IsBuyed = true;
             view.SellButtonClick -= OnSellButtonClick;

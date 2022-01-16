@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3386837347750421032}
   - component: {fileID: 5601147117793238478}
-  - component: {fileID: 1034969778417607046}
+  - component: {fileID: 8983170551506445569}
   m_Layer: 0
   m_Name: SoundLittleidea
   m_TagString: Untagged
@@ -128,7 +128,7 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
---- !u!114 &1034969778417607046
+--- !u!114 &8983170551506445569
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -137,9 +137,6 @@ MonoBehaviour:
   m_GameObject: {fileID: 1949721138940268872}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d1de6f5a02b2ff74e8b20412f32d0141, type: 3}
+  m_Script: {fileID: 11500000, guid: 90ba30bc5c2fb874689723054254063d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _label: LittleIdea
-  _price: 875
-  _isBuyed: 0

@@ -14,19 +14,6 @@ public class ObjectPool : MonoBehaviour
 
     protected float ScalingSpeed { get; set; }
 
-    protected void Initialize(GameObject prefab)
-    {
-        _camera = Camera.main;
-
-        for (int i = 0; i < _capacity; i++)
-        {
-            GameObject spawned = Instantiate(prefab, _container.transform);
-            spawned.SetActive(false);
-
-            _pool.Add(spawned);
-        }
-    }
-
     protected void Initialize(List<GameObject> prefabs)
     {
         _camera = Camera.main;

@@ -10,16 +10,15 @@ public class Player : MonoBehaviour
     private int _startHealth = 2;
     private int _maxHealth = 5;
     private int _currentHealth;
-    private int _money = 0;
-    private List<Sound> _sounds = new List<Sound>();
-    private int _moneyToPay;
-
-    public int Money => _money;
+    private int _moneyDuringGame;
+    private List<SoundItem> _sounds = new List<SoundItem>();
 
     public event UnityAction<int> HealthChanged;
     public event UnityAction Died;
     public event UnityAction<Enemy> KilledEnemy;
     public event UnityAction<int> NumberOfCoinsChanged;
+
+    public int MoneyDuringGame => _moneyDuringGame;
 
     private void Awake()
     {
@@ -28,8 +27,10 @@ public class Player : MonoBehaviour
 
     private void Start()
     {
-        NumberOfCoinsChanged?.Invoke(_money);
+        NumberOfCoinsChanged?.Invoke(PlayerPrefs.GetInt("Money"));
         HealthChanged?.Invoke(_currentHealth);
+        _moneyDuringGame = MoneyManager.StartMoney;
+        PlayerPrefs.SetInt("Money", 0);
     }
 
     private void OnTriggerEnter(Collider other)
@@ -76,40 +77,20 @@ public class Player : MonoBehaviour
     {
         if (reward >= 0)
         {
-            _money += reward;
+            _moneyDuringGame += reward;
 
-            NumberOfCoinsChanged?.Invoke(_money);
+            NumberOfCoinsChanged?.Invoke(_moneyDuringGame);
         }
     }
 
-    public void AddPurchasedSound(Sound sound)
+    public void AddPurchasedSound(SoundItem sound)
     {
         _sounds.Add(sound);
     }
 
-    public bool CheckSolvency(Sound sound)
-    {
-        _moneyToPay = sound.Price;
-
-        if (_money >= _moneyToPay)
-        {
-            return true;
-        }
-        else
-        {
-            _moneyToPay = 0;
-            return false;
-        }
-    }
-
-    public void ToPay()
-    {
-        _money -= _moneyToPay;
-    }
-
     public void ResetPlayer()
     {
-        _money = 0;
+        _moneyDuringGame = MoneyManager.StartMoney;
         _currentHealth = _startHealth;
         HealthChanged?.Invoke(_currentHealth);
         _mover.ResetMover();

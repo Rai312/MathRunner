@@ -9,9 +9,9 @@ public class SoundView : MonoBehaviour
     [SerializeField] private TMP_Text _price;
     [SerializeField] private Button _sellButton;
 
-    private Sound _sound;
+    private SoundItem _sound;
 
-    public event UnityAction<Sound, SoundView> SellButtonClick;
+    public event UnityAction<SoundItem, SoundView> SellButtonClick;
 
     private void OnEnable()
     {
@@ -36,7 +36,7 @@ public class SoundView : MonoBehaviour
         SellButtonClick?.Invoke(_sound, this);
     }
 
-    public void Render(Sound sound)
+    public void Render(SoundItem sound)
     {
         _sound = sound;
         _label.text = sound.Label;

@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4767405999408060993}
   - component: {fileID: 3885817338424023595}
-  - component: {fileID: 981892800269843243}
+  - component: {fileID: 4546339609242658766}
   m_Layer: 0
   m_Name: SoundFunday
   m_TagString: Untagged
@@ -128,7 +128,7 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
---- !u!114 &981892800269843243
+--- !u!114 &4546339609242658766
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -137,9 +137,6 @@ MonoBehaviour:
   m_GameObject: {fileID: 4747430085593041199}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d1de6f5a02b2ff74e8b20412f32d0141, type: 3}
+  m_Script: {fileID: 11500000, guid: 49ee7e652f6213141a641377a31f10ea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _label: Funday
-  _price: 1000
-  _isBuyed: 0

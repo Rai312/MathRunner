@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3698247087513288740}
   - component: {fileID: 3830614461755998592}
-  - component: {fileID: 2127631379453277571}
+  - component: {fileID: 4105770751156118214}
   m_Layer: 0
   m_Name: SoundPunky
   m_TagString: Untagged
@@ -128,7 +128,7 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
---- !u!114 &2127631379453277571
+--- !u!114 &4105770751156118214
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -137,9 +137,6 @@ MonoBehaviour:
   m_GameObject: {fileID: 4600879167864658091}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d1de6f5a02b2ff74e8b20412f32d0141, type: 3}
+  m_Script: {fileID: 11500000, guid: 90ba30bc5c2fb874689723054254063d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _label: Punky
-  _price: 1200
-  _isBuyed: 0
