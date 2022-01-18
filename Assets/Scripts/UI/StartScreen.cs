@@ -13,15 +13,17 @@ public class StartScreen : Screen
     public event UnityAction SettingButtonClick;
     public event UnityAction ExitButtonClick;
 
-    private void OnEnable()
+    protected override void OnEnable()
     {
+        base.OnEnable();
         _playButton.onClick.AddListener(OnPlayButtonClick);
         _shopButton.onClick.AddListener(OnShopButtonClick);
         _settingButton.onClick.AddListener(OnSettingButtonClick);
     }
 
-    private void OnDisable()
+    protected override void OnDisable()
     {
+        base.OnDisable();
         _playButton.onClick.RemoveListener(OnPlayButtonClick);
         _shopButton.onClick.RemoveListener(OnShopButtonClick);
         _settingButton.onClick.RemoveListener(OnSettingButtonClick);

@@ -9,13 +9,15 @@ public class GameOverScreen : Screen
     public event UnityAction RestartButtonClick;
     public event UnityAction ExitButtonClick;
 
-    private void OnEnable()
+    protected override void OnEnable()
     {
+        base.OnEnable();
         _restartButton.onClick.AddListener(OnRestartButtonClick);
     }
 
-    private void OnDisable()
+    protected override void OnDisable()
     {
+        base.OnDisable();
         _restartButton.onClick.RemoveListener(OnRestartButtonClick);
     }
 
