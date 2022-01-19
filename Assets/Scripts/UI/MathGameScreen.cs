@@ -78,7 +78,7 @@ public class MathGameScreen : MonoBehaviour
                 if (_isRightAnswer)
                 {
                     _timeElapsed = 0f;
-                    _player.TakeHealth(enemy.HealthOfReward);
+                    _player.Heal(enemy.Reward);
                     _mathGameGroup.alpha = _minValue;
                     Time.timeScale = _maxValue;
                     _isRightAnswer = false;
@@ -92,7 +92,7 @@ public class MathGameScreen : MonoBehaviour
                     _timeElapsed = 0f;
 
                     Time.timeScale = _maxValue;
-                    _player.TakeDamage(enemy.Damage);
+                    _player.Damage(enemy.Damage);
                     _mathGameGroup.alpha = _minValue;
                     _isButtonPressed = false;
 
@@ -107,7 +107,7 @@ public class MathGameScreen : MonoBehaviour
         {
             _timeElapsed = 0f;
             Time.timeScale = _maxValue;
-            _player.TakeDamage(enemy.Damage);
+            _player.Damage(enemy.Damage);
             _mathGameGroup.alpha = _minValue;
         }
     }

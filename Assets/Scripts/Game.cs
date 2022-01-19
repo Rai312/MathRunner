@@ -97,7 +97,7 @@ public class Game : MonoBehaviour
     {
         Application.Quit();
     }
-
+    
     private void StartGame()
     {
         Time.timeScale = 1;

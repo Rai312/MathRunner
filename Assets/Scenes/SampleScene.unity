@@ -3569,7 +3569,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.085185185, y: 0.42584115}
   m_AnchorMax: {x: 0.93600005, y: 0.8536042}
-  m_AnchoredPosition: {x: 0.000061035, y: 1.5767975}
+  m_AnchoredPosition: {x: 0, y: 1.5767822}
   m_SizeDelta: {x: 0, y: 3.1537}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1290339620
@@ -7182,6 +7182,7 @@ GameObject:
   - component: {fileID: 2710645407173476518}
   - component: {fileID: 2710645407173476515}
   - component: {fileID: 2710645407173476517}
+  - component: {fileID: 2710645407173476519}
   m_Layer: 0
   m_Name: Schoolboy
   m_TagString: Untagged
@@ -7241,6 +7242,34 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 644ef42b347e1e04890da25739a82c17, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &2710645407173476519
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2710645407173476514}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bad2e5163673ae549a0fb68f31305c54, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _player: {fileID: 2981185535381993790}
+  _coinCollected:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 2981185536568553407}
+        m_TargetAssemblyTypeName: UnityEngine.AudioSource, UnityEngine
+        m_MethodName: PlayOneShot
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 8300000, guid: ae89f42edc47084408ad3e02b85b378d, type: 3}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.AudioClip, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &2731070706592346796
 GameObject:
   m_ObjectHideFlags: 0
@@ -7364,21 +7393,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _mover: {fileID: 2710645407173476516}
-  _coinCollected:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 2981185536568553407}
-        m_TargetAssemblyTypeName: UnityEngine.AudioSource, UnityEngine
-        m_MethodName: PlayOneShot
-        m_Mode: 2
-        m_Arguments:
-          m_ObjectArgument: {fileID: 8300000, guid: ae89f42edc47084408ad3e02b85b378d, type: 3}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.AudioClip, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
 --- !u!1 &2981185536568553401
 GameObject:
   m_ObjectHideFlags: 0

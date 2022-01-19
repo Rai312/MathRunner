@@ -7,12 +7,12 @@ public class PlayerTracker : MonoBehaviour
     private float _trackingSpeed = 15f;
     private Vector3 _distanceBetweenPlayerAndCamera;
 
-    void Start()
+    private void Start()
     {
         _distanceBetweenPlayerAndCamera = transform.position - _player.transform.position;
     }
 
-    void LateUpdate()
+    private void LateUpdate()
     {
         Vector3 targetCameraPosition = _player.transform.position + _distanceBetweenPlayerAndCamera;
 

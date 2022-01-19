@@ -5,7 +5,6 @@ using UnityEngine.Events;
 public class Player : MonoBehaviour
 {
     [SerializeField] private PlayerMover _mover;
-    [SerializeField] private UnityEvent _coinCollected;
 
     private int _startHealth = 2;
     private int _maxHealth = 5;
@@ -39,15 +38,9 @@ public class Player : MonoBehaviour
         {
             KilledEnemy?.Invoke(enemy);
         }
-
-        if (other.TryGetComponent<Coin>(out Coin coin))
-        {
-            _coinCollected?.Invoke();
-            TakeReward(coin.Reward);
-        }
     }
 
-    public void TakeDamage(int damage)
+    public void Damage(int damage)
     {
         if (damage >= 0)
         {
@@ -64,7 +57,7 @@ public class Player : MonoBehaviour
         }
     }
 
-    public void TakeHealth(int health)
+    public void Heal(int health)
     {
         if (health >= 0 && _currentHealth <= _maxHealth)
         {
@@ -73,7 +66,7 @@ public class Player : MonoBehaviour
         }
     }
 
-    private void TakeReward(int reward)
+    public void TakeReward(int reward)
     {
         if (reward >= 0)
         {
