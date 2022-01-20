@@ -112,7 +112,6 @@ public class Game : MonoBehaviour
 
     private void OnGameOver()
     { 
-        PlayerPrefs.SetInt("Money", PlayerPrefs.GetInt("Money") + _player.MoneyDuringGame);
         PlayerPrefs.Save();
 
         _gameOverScreen.Open();

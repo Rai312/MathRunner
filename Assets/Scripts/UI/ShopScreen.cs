@@ -45,7 +45,7 @@ public class ShopScreen : Screen
 
     private bool CheckSolvency(SoundItem sound)
     {
-        if (PlayerPrefs.GetInt("Money") >= sound.Price)
+        if (PlayerPrefs.GetInt(MoneyManager.Money) >= sound.Price)
             return true;
         else
             return false;
