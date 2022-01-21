@@ -16,7 +16,7 @@ public class HealthDisplay : MonoBehaviour
         _player.HealthChanged -= OnHealthChanged;
     }
 
-    public void OnHealthChanged(int health)
+    private void OnHealthChanged(int health)
     {
         _healthDisplay.text = health.ToString();
     }

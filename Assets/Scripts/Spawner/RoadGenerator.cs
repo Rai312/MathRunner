@@ -16,7 +16,7 @@ public class RoadGenerator : ObjectPool
 
     private void Awake()
     {
-        gameObject.GetComponent<RoadGenerator>().enabled = false;
+        this.enabled = false;
     }
 
     private void Start()
@@ -36,11 +36,13 @@ public class RoadGenerator : ObjectPool
 
     private void FixedUpdate()
     {
-        if (GetNumberOfActiveRoad() < _maxCountRoad)
+        int numberOfActiveRoads = GetNumberOfActiveRoads();
+
+        if (numberOfActiveRoads < _maxCountRoad)
         {
             if (TryGetObject(out GameObject road))
             {
-                if (GetNumberOfActiveRoad() == 0 )
+                if (numberOfActiveRoads == 0 )
                 {
                     SpawnRoad(road, Vector3.zero);
                     _lastRoad = road;

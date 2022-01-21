@@ -25,7 +25,7 @@ public class MapGenerator : ObjectPool
 
     private void Awake()
     {
-        gameObject.GetComponent<MapGenerator>().enabled = false;
+        this.enabled = false;
 
         MakeMap(ref _maps);
         _mapSize = _itemCountInMap * _distanceBetweenMap;
@@ -49,11 +49,13 @@ public class MapGenerator : ObjectPool
 
     private void FixedUpdate()
     {
-        if (GetNumberOfActiveRoad() < _maxCountMap)
+        int numberOfActiveRoads = GetNumberOfActiveRoads();
+
+        if (numberOfActiveRoads < _maxCountMap)
         {
             if (TryGetObject(out GameObject map))
             {
-                if (GetNumberOfActiveRoad() == 0)
+                if (numberOfActiveRoads == 0)
                 {
                     SpawnMap(map, new Vector3(transform.position.x, transform.position.y, _mapPozitionZ));
                     _lastMap = map;

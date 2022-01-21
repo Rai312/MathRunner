@@ -39,7 +39,7 @@ public class ObjectPool : MonoBehaviour
         return result != null;
     }
 
-    protected int GetNumberOfActiveRoad()
+    protected int GetNumberOfActiveRoads()
     {
         int result = _pool.Count(p => p.activeSelf == true);
 

@@ -35,9 +35,7 @@ public class Player : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         if (other.TryGetComponent<Enemy>(out Enemy enemy))
-        {
             KilledEnemy?.Invoke(enemy);
-        }
     }
 
     public void Damage(int damage)
@@ -52,16 +50,18 @@ public class Player : MonoBehaviour
         }
 
         if (_currentHealth <= 0)
-        {
             Die();
-        }
     }
 
     public void Heal(int health)
     {
         if (health >= 0 && _currentHealth <= _maxHealth)
         {
-            _currentHealth += health;
+            if (_currentHealth + health > _maxHealth)
+                _currentHealth = _maxHealth;
+            else
+                _currentHealth += health;
+
             HealthChanged?.Invoke(_currentHealth);
         }
     }
