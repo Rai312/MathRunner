@@ -73,7 +73,7 @@ public class ObjectPool : MonoBehaviour
         }
     }
 
-    public void ResetPool()
+    public void Reset()
     {
         foreach (var item in _pool)
         {

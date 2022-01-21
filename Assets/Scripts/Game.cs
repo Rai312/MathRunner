@@ -9,7 +9,7 @@ public class Game : MonoBehaviour
     [SerializeField] private SettingScreen _settingScreen;
     [SerializeField] private ShopScreen _shopScreen;
     [SerializeField] private GameOverScreen _gameOverScreen;
-
+    [SerializeField] private CoinDisplay _coinDisplay;
 
     private void OnEnable()
     {
@@ -100,20 +100,20 @@ public class Game : MonoBehaviour
     
     private void StartGame()
     {
+        MoneyManager.MoneyDuringGame = MoneyManager.StartMoney;
         Time.timeScale = 1;
-        _player.ResetPlayer();
+        _player.Reset();
 
         _roadGenerator.enabled = true;
-        _roadGenerator.ResetPool();
+        _roadGenerator.Reset();
 
         _mapGenerator.enabled = true;
-        _mapGenerator.ResetPool();
+        _mapGenerator.Reset();
     }
 
     private void OnGameOver()
-    { 
-        PlayerPrefs.Save();
-
+    {
+        _coinDisplay.SetCurrentMoney();
         _gameOverScreen.Open();
         Time.timeScale = 0;
     }

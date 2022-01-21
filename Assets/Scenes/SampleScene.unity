@@ -7511,6 +7511,7 @@ MonoBehaviour:
   _settingScreen: {fileID: 1491647752}
   _shopScreen: {fileID: 1739504689}
   _gameOverScreen: {fileID: 1688124413}
+  _coinDisplay: {fileID: 64069471}
 --- !u!82 &2981185536568553407
 AudioSource:
   m_ObjectHideFlags: 0

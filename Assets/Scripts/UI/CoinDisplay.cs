@@ -8,16 +8,26 @@ public class CoinDisplay : MonoBehaviour
 
     private void OnEnable()
     {
-        _player.NumberOfCoinsChanged += OnNumberOfCoinsChanged;
+        MoneyManager.NumberOfCoinsChanged += OnNumberOfCoinsChanged;
     }
 
     private void OnDisable()
     {
-        _player.NumberOfCoinsChanged -= OnNumberOfCoinsChanged;
+        MoneyManager.NumberOfCoinsChanged -= OnNumberOfCoinsChanged;
+    }
+
+    private void Start()
+    {
+        _coinDisplay.text = MoneyManager.CurrentMoney.ToString();
     }
 
     private void OnNumberOfCoinsChanged(int coins)
     {
         _coinDisplay.text = coins.ToString();
+    }
+
+    public void SetCurrentMoney()
+    {
+        _coinDisplay.text = MoneyManager.CurrentMoney.ToString();
     }
 }

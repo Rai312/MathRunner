@@ -9,15 +9,11 @@ public class Player : MonoBehaviour
     private int _startHealth = 2;
     private int _maxHealth = 5;
     private int _currentHealth;
-    private int _moneyDuringGame;
     private List<SoundItem> _sounds = new List<SoundItem>();
 
     public event UnityAction<int> HealthChanged;
     public event UnityAction Died;
     public event UnityAction<Enemy> KilledEnemy;
-    public event UnityAction<int> NumberOfCoinsChanged;
-
-    public int MoneyDuringGame => _moneyDuringGame;
 
     private void Awake()
     {
@@ -26,10 +22,7 @@ public class Player : MonoBehaviour
 
     private void Start()
     {
-        NumberOfCoinsChanged?.Invoke(PlayerPrefs.GetInt(MoneyManager.Money));
         HealthChanged?.Invoke(_currentHealth);
-        _moneyDuringGame = MoneyManager.StartMoney;
-        PlayerPrefs.SetInt(MoneyManager.Money, 0);
     }
 
     private void OnTriggerEnter(Collider other)
@@ -66,30 +59,16 @@ public class Player : MonoBehaviour
         }
     }
 
-    public void TakeReward(int reward)
-    {
-        if (reward >= 0)
-        {
-            _moneyDuringGame += reward;
-
-            int currentMoney = PlayerPrefs.GetInt(MoneyManager.Money);
-            PlayerPrefs.SetInt(MoneyManager.Money, currentMoney + reward);
-
-            NumberOfCoinsChanged?.Invoke(_moneyDuringGame);
-        }
-    }
-
     public void AddPurchasedSound(SoundItem sound)
     {
         _sounds.Add(sound);
     }
 
-    public void ResetPlayer()
+    public void Reset()
     {
-        _moneyDuringGame = MoneyManager.StartMoney;
         _currentHealth = _startHealth;
         HealthChanged?.Invoke(_currentHealth);
-        _mover.ResetMover();
+        _mover.Reset();
     }
 
     private void Die()

@@ -12,7 +12,7 @@ public class CoinCollector : MonoBehaviour
         if (other.TryGetComponent<Coin>(out Coin coin))
         {
             _coinCollected?.Invoke();
-            _player.TakeReward(coin.Reward);
+            MoneyManager.TakeReward(coin.Reward);
         }
     }
 }
