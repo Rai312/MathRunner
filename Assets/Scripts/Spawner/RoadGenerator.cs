@@ -1,7 +1,6 @@
 ﻿using System.Collections.Generic;
 using UnityEngine;
 
-[RequireComponent(typeof(RoadGenerator))]
 public class RoadGenerator : ObjectPool
 {
     [SerializeField] private List<GameObject> _roads;

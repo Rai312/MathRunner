@@ -11,7 +11,7 @@ public static class MoneyManager
 
     public static void Pay(int money)
     {
-        PlayerPrefs.SetInt(Money, PlayerPrefs.GetInt(Money) - money);
+        PlayerPrefs.SetInt(Money, CurrentMoney - money);
         PlayerPrefs.Save();
     }
 

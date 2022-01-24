@@ -1,7 +1,6 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-[RequireComponent(typeof(MapGenerator))]
 public class MapGenerator : ObjectPool
 {
     [SerializeField] private GameObject _coinPrefab;

@@ -72,7 +72,8 @@ public class MathGameScreen : MonoBehaviour
         while (_timeElapsed < _gameTime)
         {
             _timeElapsed += Time.deltaTime / _scalingTime;
-            StartCoroutine(FadeTime());
+
+            var fadeTimeInJob = StartCoroutine(FadeTime());
             if (_isButtonPressed)
             {
                 if (_isRightAnswer)
@@ -84,7 +85,7 @@ public class MathGameScreen : MonoBehaviour
                     _isRightAnswer = false;
                     _isButtonPressed = false;
 
-                    StopCoroutine(FadeTime());
+                    StopCoroutine(fadeTimeInJob);
                     yield break;
                 }
                 else
@@ -96,7 +97,7 @@ public class MathGameScreen : MonoBehaviour
                     _mathGameGroup.alpha = _minValue;
                     _isButtonPressed = false;
 
-                    StopCoroutine(FadeTime());
+                    StopCoroutine(fadeTimeInJob);
                     yield break;
                 }
             }
