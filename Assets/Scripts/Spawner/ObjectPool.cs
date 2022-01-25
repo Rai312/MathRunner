@@ -66,7 +66,7 @@ public class ObjectPool : MonoBehaviour
     {
         foreach (GameObject gameobject in _pool)
         {
-            if (gameObject.activeSelf == true)
+            if (gameobject.activeSelf == true)
             {
                 gameobject.transform.position -= new Vector3(0f, 0f, scalingSpeed * Time.fixedDeltaTime);
             }
